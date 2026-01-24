@@ -6,14 +6,7 @@ function OpenAccount() {
     <div className='container my-5'>
       <div className='row text-center justify-content-center '>
 
-        {/* Hero Image */}
-        <div className='col-12 col-md-10 col-lg-8 mb-4 mt-5'>
-          <img
-            src='/src/assets/homeHero.png'
-            alt='hero image'
-            className='img-fluid'
-          />
-        </div>
+
 
         {/* Heading */}
         <div className='col-12 col-md-10 col-lg-8'>

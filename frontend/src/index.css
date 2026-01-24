@@ -43,3 +43,36 @@ html, body {
   margin: 0 auto;
 }
 
+
+#supportHero {
+  background-color: rgb(56, 126, 209);
+  color: white;
+}
+
+#supportHero a {
+  color: white;
+  text-decoration: none;
+}
+
+#supportWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#supportHero input {
+  padding: 16px 20px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+}
+
+.support-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.track-link {
+  font-size: 18px;
+  font-weight: 500;
+}

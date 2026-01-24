@@ -16,14 +16,14 @@ function Team() {
       <div className="row align-items-center justify-content-center mb-4">
 
         {/* Image */}
-        <div className="col-lg-4 col-md-12 text-center mb-3">
+        <div className="col-lg-4 col-md-12 text-center mb-3 fade-in">
           <img
             src="/src/assets/smallPic.jpeg"
             alt="Team member"
             className="img-fluid rounded-circle"
             style={{ width: "290px", height: "290px", objectFit: "cover" }}
           />
-          <h3 className='mt-3'>KhushI Tiwari</h3>
+          <h3 className='mt-3 fade-up'>KhushI Tiwari</h3>
         </div>
 
         {/* Text */}

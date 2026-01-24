@@ -4,7 +4,7 @@ function Hero() {
     <div className="container">
 
       {/* Heading */}
-      <div className="row mt-5 mb-5">
+      <div className="row mt-5 mb-5 fade-up">
         <div className="col-12">
           <h1 className="fs-4 text-center px-3 mt-5 mb-5">
             We pioneered the discount broking model in India.
