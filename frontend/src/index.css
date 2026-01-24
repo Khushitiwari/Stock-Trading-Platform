@@ -1,1 +1,45 @@
+html, body {
+  overflow-x: hidden;
+}
+
+.nav-link{
+    margin-left:0;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: heroFadeUp 0.9s ease forwards;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.25s; }
+.animate-delay-3 { animation-delay: 0.4s; }
+.animate-delay-4 { animation-delay: 0.55s; }
+
+/* Image size control */
+.hero-img {
+  max-width: 700px;
+  margin: 0 auto;
+}
 

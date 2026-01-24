@@ -1,10 +1,25 @@
 
-import React from 'react'
+import React from "react";
 
 function Hero() {
   return (
-    <div>Hero</div>
-  )
+    <div className="container border-bottom mb-5">
+      <div className="row text-center mt-5 hero-animate">
+        <h1 className="mb-3">Technology</h1>
+
+        <h3 className="text-muted mt-3 fs-4">
+          Sleek, modern and intuitive trading platforms
+        </h3>
+
+        <p className="mt-3 mb-5">
+          Check out our{" "}
+          <a href="" className="text-decoration-none">
+            investment offering →
+          </a>
+        </p>
+      </div>
+    </div>
+  );
 }
 
-export default Hero
+export default Hero;

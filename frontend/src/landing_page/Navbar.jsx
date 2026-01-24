@@ -1,85 +1,52 @@
+
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-      
-  
-      <nav className="navbar navbar-expand-l bg-body-tertiary"
-      style={{backgroundColor:"#FFF"}}
-      >
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <img src="/src/assets/logo.svg" style={{width:'25%'}}></img>
-            
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Link
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">
-                  Disabled
-                </a>
-              </li>
-            </ul>
-            <form className="d-flex" role="search">
-              
-              
-            </form>
-          </div>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+      <div className="container">
+        
+        <NavLink className="navbar-brand" to="/">
+          <img
+            src="/src/assets/logo.svg"
+            alt="Logo"
+            className="img-fluid"
+            style={{ height: "20px" }}
+          />
+        </NavLink>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ms-auto mb-lg-0">
+            <li className="nav-item">
+              <NavLink className="nav-link ms-lg-3" to="/signup">Signup</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link ms-lg-3" to="/about">About</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link ms-lg-3" to="/product">Products</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link ms-lg-3" to="/pricing">Pricing</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link ms-lg-3" to="/support">Support</NavLink>
+            </li>
+          </ul>
         </div>
-      </nav>
-    
+
+      </div>
+    </nav>
   );
 }
 
