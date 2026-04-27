@@ -15,6 +15,9 @@ import Navbar from "./landing_page/Navbar"
 import Footer from './landing_page/Footer'
 import NotFound from "./landing_page/NotFound"
 import './landing_page/animation.css';
+import Login from "./landing_page/Login";
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -27,6 +30,7 @@ createRoot(document.getElementById('root')).render(
   <Routes>
     <Route path='/' element={<HomePage/>} />  
     <Route path='/Signup' element={<Signup/>} />  
+    <Route path='/Login' element={<Login/>} />  
     <Route path='/about' element={<AboutPage/>} />  
     <Route path='/product' element={<ProductPage/>} />  
     <Route path='/pricing' element={<PricingPage/>} /> 

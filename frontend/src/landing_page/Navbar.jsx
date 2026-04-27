@@ -30,6 +30,9 @@ function Navbar() {
             <li className="nav-item">
               <NavLink className="nav-link ms-lg-3" to="/signup">Signup</NavLink>
             </li>
+             <li className="nav-item">
+              <NavLink className="nav-link ms-lg-3" to="/login">Login</NavLink>
+            </li>
             <li className="nav-item">
               <NavLink className="nav-link ms-lg-3" to="/about">About</NavLink>
             </li>
