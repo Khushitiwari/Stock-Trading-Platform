@@ -8,8 +8,10 @@ module.exports.userVerification = (req, res) => { // it checks if user has acces
   if (!token) {
     return res.json({ status: false })
   }
-  jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
+  jwt.verify(token, process.env.JWT_SECRET, async (err, data) => {
     if (err) {
+
+      console.log("jwt error" , err.message)
      return res.json({ status: false })
     } else {
       const user = await User.findById(data.id)

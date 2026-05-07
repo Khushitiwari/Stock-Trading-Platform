@@ -1,8 +1,8 @@
 
-// dashboard/src/components/Dashboard.jsx
+
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { useCookies } from "react-cookie";  // npm install react-cookie if not installed
+import { useCookies } from "react-cookie";  
 
 import Apps from "./Apps";
 import Funds from "./Funds";
@@ -18,7 +18,7 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     removeCookie("token", { path: "/" });
-    window.location.href = "http://localhost:5173/login";
+    window.location.href = "http://localhost:5175/login";
   };
 
   return (

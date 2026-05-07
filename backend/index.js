@@ -16,10 +16,10 @@ const MONGO_URI = process.env.MONGO_URI;
 
 const app = express();
 
-// ✅ All middleware FIRST, in correct order
+
 app.use(cors({
   origin: [
-  "http://localhost:5173", 
+  "http://localhost:5175", 
   "http://localhost:3000"
   ] , //  frontend port
 
@@ -29,7 +29,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// ✅ Routes after middleware
+//  Routes after middleware
 app.use("/", authRoute);
 
 app.get('/allHoldings', async (req, res) => {
@@ -53,7 +53,7 @@ app.post('/newOrder', async (req, res) => {
   res.send("Order saved");
 });
 
-// ✅ Connect to DB, then start server
+//  Connect to DB, then start server
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log("DB connected!");
