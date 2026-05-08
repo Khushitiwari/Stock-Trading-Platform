@@ -6,7 +6,7 @@ function Hero() {
     <div className="container my-5 hero-animate">
       <div className="row text-center justify-content-center">
 
-        {/* Image */}
+        
         <div className="col-12 mb-4 animate-delay-1">
           <img
             src="/src/assets/homeHero.png"
@@ -15,7 +15,7 @@ function Hero() {
           />
         </div>
 
-        {/* Text */}
+        
         <div className="col-12 col-md-10 col-lg-8">
           <h1 className="mt-4 animate-delay-2">
             Invest in everything

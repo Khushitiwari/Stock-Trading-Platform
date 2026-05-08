@@ -152,3 +152,4 @@ const WatchListActions = ({ uid }) => {
     </span>
   );
 };
+

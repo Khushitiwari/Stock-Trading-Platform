@@ -53,6 +53,7 @@ app.post('/newOrder', async (req, res) => {
   res.send("Order saved");
 });
 
+
 //  Connect to DB, then start server
 mongoose.connect(MONGO_URI)
   .then(() => {
