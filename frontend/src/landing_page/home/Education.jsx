@@ -1,54 +1,40 @@
-
-import React from 'react'
+import React from "react";
 
 function Education() {
   return (
-    <div className='container my-5'>
-      <div className="row align-items-center">
-
-        {/* Image Section */}
-        <div className="col-lg-6 col-md-12 text-center mb-4 fade-left mt-5">
-          <img
-            src='/src/assets/education.svg'
-            alt="education"
-            className='img-fluid'
-          />
+    <section className="pt-section pt-section-alt">
+      <div className="container">
+        <div className="row align-items-center g-5">
+          <div className="col-lg-6 text-center">
+            <img
+              src="/src/assets/education.svg"
+              alt="Pulse Academy"
+              className="img-fluid"
+              style={{ maxWidth: "400px" }}
+            />
+          </div>
+          <div className="col-lg-6">
+            <span className="pt-product-tag">Free education</span>
+            <h2 className="mb-3">Learn before you leap</h2>
+            <p className="text-muted">
+              Pulse Academy offers comprehensive courses from market basics to
+              advanced options strategies — completely free, forever.
+            </p>
+            <a href="#" className="d-inline-block mb-4 text-decoration-none fw-semibold">
+              Explore Pulse Academy →
+            </a>
+            <p className="text-muted mt-4">
+              Join Pulse Community — our active forum where traders share
+              insights, ask questions, and grow together.
+            </p>
+            <a href="#" className="text-decoration-none fw-semibold">
+              Join the community →
+            </a>
+          </div>
         </div>
-
-        {/* Content Section */}
-        <div className="col-lg-6 col-md-12 fade-right mt-4">
-          <h1 className='mb-3 fs-2 fade-up'>
-            Free and open market education
-          </h1>
-
-          <p className='fade-up delay-1'>
-            Varsity, the largest online stock market education book in the world
-            covering everything from the basics to advanced trading.
-          </p>
-
-          <a
-            href=''
-            className='d-inline-block mb-4 text-decoration-none fade-up delay-2'
-          >
-            Varsity →
-          </a>
-
-          <p className='mt-4 fade-up delay-3'>
-            TradingQ&A, the most active trading and investment community in India
-            for all your market related queries.
-          </p>
-
-          <a
-            href=''
-            className='text-decoration-none fade-up delay-4'
-          >
-            TradingQ&A →
-          </a>
-        </div>
-
       </div>
-    </div>
-  )
+    </section>
+  );
 }
 
-export default Education
+export default Education;

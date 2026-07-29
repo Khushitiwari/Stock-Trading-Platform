@@ -1,7 +1,9 @@
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
+import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
 
-module.exports.createSecretToken = (id) => {
+dotenv.config();
+
+export const createSecretToken = (id) => {
   if (!process.env.JWT_SECRET) {
     throw new Error("JWT_SECRET is missing in .env");
   }

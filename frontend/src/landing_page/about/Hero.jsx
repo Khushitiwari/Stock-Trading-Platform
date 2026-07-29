@@ -1,67 +1,49 @@
-
 function Hero() {
   return (
-    <div className="container">
-
-      {/* Heading */}
-      <div className="row mt-5 mb-5 fade-up">
-        <div className="col-12">
-          <h1 className="fs-4 text-center px-3 mt-5 mb-5">
-            We pioneered the discount broking model in India.
-            <br />
-            Now, we are breaking ground with our technology
+    <section className="pt-section">
+      <div className="container">
+        <div className="text-center mb-5">
+          <span className="pt-product-tag">Our story</span>
+          <h1 className="mt-3 mb-4" style={{ maxWidth: "720px", margin: "0 auto" }}>
+            Reimagining how India trades — one pulse at a time
           </h1>
         </div>
-      </div>
 
-      {/* Content */}
-      <div className="row border-top pt-4 ">
-
-        {/* Left column */}
-        <div className="col-lg-6 col-md-12 mb-4 mt-5 ">
-          <p>
-            We kick-started operations on the 15th of August, 2010 with the goal
-            of breaking all barriers that traders and investors face in India in
-            terms of cost, support, and technology. We named the company Zerodha,
-            a combination of Zero and "Rodha", the Sanskrit word for barrier.
-          </p>
-
-          <p>
-            Today, our disruptive pricing models and in-house technology have
-            made us the biggest stock broker in India.
-          </p>
-
-          <p>
-            Over 1.6+ crore clients place billions of orders every year through
-            our powerful ecosystem of investment platforms, contributing over
-            15% of all Indian retail trading volumes.
-          </p>
+        <div className="row g-5 pt-4 border-top">
+          <div className="col-lg-6">
+            <p className="text-muted">
+              PulseTrade was founded with a simple belief: trading platforms should
+              empower users, not overwhelm them. We set out to build an experience
+              that combines institutional-grade speed with consumer-grade simplicity.
+            </p>
+            <p className="text-muted">
+              Our name reflects our philosophy — markets have a pulse, and the best
+              traders learn to read it. We give you the tools, data, and clarity to
+              do exactly that.
+            </p>
+            <p className="text-muted">
+              Today, thousands of traders rely on PulseTrade for equities, derivatives,
+              mutual funds, and more — all through a single, beautifully designed platform.
+            </p>
+          </div>
+          <div className="col-lg-6">
+            <p className="text-muted">
+              Beyond trading, we're committed to financial literacy. Pulse Academy
+              offers free courses, and our community forum connects traders at every
+              experience level.
+            </p>
+            <p className="text-muted">
+              Our engineering team builds everything in-house — from order routing to
+              real-time charting — ensuring reliability and continuous innovation.
+            </p>
+            <p className="text-muted mb-0">
+              We're always working on what's next. Follow our engineering blog for
+              updates on new features, infrastructure, and the technology behind PulseTrade.
+            </p>
+          </div>
         </div>
-
-        {/* Right column */}
-        <div className="col-lg-6 col-md-12 mb-4 mt-5">
-          <p>
-            In addition, we run a number of popular open online educational and
-            community initiatives to empower retail traders and investors.
-          </p>
-
-          <p>
-            <a href="#" className="text-decoration-none">
-              Rainmatter
-            </a>
-            , our fintech fund and incubator, has invested in several fintech
-            startups with the goal of growing the Indian capital markets.
-          </p>
-
-          <p>
-            And yet, we are always up to something new every day. Catch up on the
-            latest updates on our blog or see what the media is saying about us or
-            learn more about our business and product philosophies.
-          </p>
-        </div>
-
       </div>
-    </div>
+    </section>
   );
 }
 

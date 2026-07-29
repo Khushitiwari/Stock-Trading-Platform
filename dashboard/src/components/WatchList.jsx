@@ -1,106 +1,87 @@
 import React, { useState, useContext } from "react";
-
 import GeneralContext from "./GeneralContext";
-
 import { Tooltip, Grow } from "@mui/material";
 import { DoughnutChart } from "./DoughnoutChart";
-
 import {
   BarChartOutlined,
-  KeyboardArrowDown,
-  KeyboardArrowUp,
   MoreHoriz,
 } from "@mui/icons-material";
-
 import { watchlist } from "../data/data";
-//import { watch } from "../../../backend/models/UserModel";
-
 
 const labels = watchlist.map((subArray) => subArray["name"]);
 
+const chartColors = [
+  "rgba(124, 58, 237, 0.7)",
+  "rgba(6, 182, 212, 0.7)",
+  "rgba(52, 211, 153, 0.7)",
+  "rgba(251, 191, 36, 0.7)",
+  "rgba(248, 113, 113, 0.7)",
+  "rgba(167, 139, 250, 0.7)",
+];
+
 const WatchList = () => {
-
-   
-  const data ={
+  const data = {
     labels,
-      datasets: [
-    {
-      label: 'Price',
-      data: watchlist.map((stock) => stock.price),
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(255, 206, 86, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(153, 102, 255, 0.5)',
-        'rgba(255, 159, 64, 0.5)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-  }
-
+    datasets: [
+      {
+        label: "Allocation",
+        data: watchlist.map((stock) => stock.price),
+        backgroundColor: chartColors,
+        borderColor: chartColors.map((c) => c.replace("0.7", "1")),
+        borderWidth: 1,
+      },
+    ],
+  };
 
   return (
-    <div className="watchlist-container">
-      <div className="search-container">
+    <aside className="watchlist-panel">
+      <div className="watchlist-header">
+        <h3>Watchlist</h3>
         <input
           type="text"
-          name="search"
-          id="search"
-          placeholder="Search eg:infy, bse, nifty fut weekly, gold mcx"
-          className="search"
+          placeholder="Search symbols..."
+          className="watchlist-search"
         />
-        <span className="counts"> {watchlist.length} / 50</span>
+        <div className="watchlist-count">
+          {watchlist.length} / 50 symbols
+        </div>
       </div>
 
-      <ul className="list">
-        {watchlist.map((stock, index) => {
-          return <WatchListItem stock={stock} key={index} />;
-        })}
+      <ul className="watchlist-list">
+        {watchlist.map((stock, index) => (
+          <WatchListItem stock={stock} key={index} />
+        ))}
       </ul>
 
-      <DoughnutChart data={data}/>
-    </div>
+      <div className="watchlist-chart">
+        <DoughnutChart data={data} />
+      </div>
+    </aside>
   );
 };
 
 export default WatchList;
 
 const WatchListItem = ({ stock }) => {
-  const [showWatchlistActions, setShowWatchlistActions] = useState(false);
-
-  const handleMouseEnter = (e) => {
-    setShowWatchlistActions(true);
-  };
-
-  const handleMouseLeave = (e) => {
-    setShowWatchlistActions(false);
-  };
+  const [showActions, setShowActions] = useState(false);
 
   return (
-    <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <div className="item">
-        <p className={stock.isDown ? "down" : "up"}>{stock.name}</p>
-        <div className="itemInfo">
-          <span className="percent">{stock.percent}</span>
-          {stock.isDown ? (
-            <KeyboardArrowDown className="down" />
-          ) : (
-            <KeyboardArrowUp className="down" />
-          )}
-          <span className="price">{stock.price}</span>
+    <li
+      onMouseEnter={() => setShowActions(true)}
+      onMouseLeave={() => setShowActions(false)}
+    >
+      <div className="watchlist-item">
+        <span className={`symbol ${stock.isDown ? "down" : "up"}`}>
+          {stock.name}
+        </span>
+        <div className="price-info">
+          <div className="price">{stock.price}</div>
+          <div className={`percent ${stock.isDown ? "down" : "up"}`}>
+            {stock.percent}
+          </div>
         </div>
       </div>
-      {showWatchlistActions && <WatchListActions uid={stock.name} />}
+      {showActions && <WatchListActions uid={stock.name} />}
     </li>
   );
 };
@@ -113,43 +94,25 @@ const WatchListActions = ({ uid }) => {
   };
 
   return (
-    <span className="actions">
-      <span>
-        <Tooltip
-          title="Buy (B)"
-          placement="top"
-          arrow
-          TransitionComponent={Grow}
-          onClick={handleBuyClick}
-        >
-          <button className="buy">Buy</button>
-        </Tooltip>
-        <Tooltip
-          title="Sell (S)"
-          placement="top"
-          arrow
-          TransitionComponent={Grow}
-        >
-          <button className="sell">Sell</button>
-        </Tooltip>
-        <Tooltip
-          title="Analytics (A)"
-          placement="top"
-          arrow
-          TransitionComponent={Grow}
-        >
-          <button className="action">
-            <BarChartOutlined className="icon" />
-          </button>
-        </Tooltip>
-
-        <Tooltip title="More" placement="top" arrow TransitionComponent={Grow}>
-          <button className="action">
-            <MoreHoriz className="icon" />
-          </button>
-        </Tooltip>
-      </span>
-    </span>
+    <div className="watchlist-actions">
+      <Tooltip title="Buy" placement="top" arrow TransitionComponent={Grow}>
+        <button className="buy-btn" onClick={handleBuyClick}>
+          Buy
+        </button>
+      </Tooltip>
+      <Tooltip title="Sell" placement="top" arrow TransitionComponent={Grow}>
+        <button className="sell-btn">Sell</button>
+      </Tooltip>
+      <Tooltip title="Chart" placement="top" arrow TransitionComponent={Grow}>
+        <button className="icon-btn">
+          <BarChartOutlined fontSize="small" />
+        </button>
+      </Tooltip>
+      <Tooltip title="More" placement="top" arrow TransitionComponent={Grow}>
+        <button className="icon-btn">
+          <MoreHoriz fontSize="small" />
+        </button>
+      </Tooltip>
+    </div>
   );
 };
-

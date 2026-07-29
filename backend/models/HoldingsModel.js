@@ -1,9 +1,14 @@
+import { Schema, model } from "mongoose";
 
-const { model } = require("mongoose");
+const HoldingsSchema = new Schema({
+  name: String,
+  qty: Number,
+  avg: Number,
+  price: Number,
+  net: String,
+  day: String,
+});
 
-const {HoldingsSchema} = require('../schemas/HoldingSchema');
+const HoldingsModel = model("holding", HoldingsSchema);
 
-const HoldingsModel = new model("holding" , HoldingsSchema);
-
-module.exports = { HoldingsModel};
-
+export default HoldingsModel;

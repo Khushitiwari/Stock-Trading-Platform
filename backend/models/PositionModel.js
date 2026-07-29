@@ -1,6 +1,16 @@
+import { Schema, model } from "mongoose";
 
-const {model } = require("mongoose");
-const {PositionSchema} = require("../schemas/PositionSchema");
-const PositionModel = new model("position" , PositionSchema);
+const PositionSchema = new Schema({
+  product: String,
+  name: String,
+  qty: Number,
+  avg: Number,
+  price: Number,
+  net: String,
+  day: String,
+  isLoss: Boolean,
+});
 
-module.exports = { PositionModel };
+const PositionModel = model("position", PositionSchema);
+
+export default PositionModel;

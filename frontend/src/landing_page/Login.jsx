@@ -1,11 +1,9 @@
-
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({ email: "", password: "" });
   const { email, password } = inputValue;
 
@@ -41,26 +39,18 @@ const Login = () => {
   };
 
   return (
-    <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-      <div className="card shadow-sm border-0 w-100" style={{ maxWidth: "420px" }}>
-        
-        {/* Header */}
-        <div className="card-header bg-white border-0 text-center pt-4 pb-0">
-          <img
-            src="/src/assets/logo.svg"
-            alt="Logo"
-            style={{ height: "28px", marginBottom: "16px" }}
-          />
-          <h5 className="fw-semibold mb-0">Welcome back</h5>
-          <p className="text-muted small mt-1">Login to your trading account</p>
+    <div className="pt-auth-page">
+      <div className="pt-auth-card">
+        <div className="pt-auth-header">
+          <img src="/src/assets/logo.svg" alt="PulseTrade" style={{ height: "32px", marginBottom: "1rem" }} />
+          <h5 className="fw-bold mb-1">Welcome back</h5>
+          <p className="text-muted small">Sign in to your PulseTrade account</p>
         </div>
 
-        {/* Body */}
-        <div className="card-body px-4 py-4">
+        <div className="pt-auth-body">
           <form onSubmit={handleSubmit}>
-
             <div className="mb-3">
-              <label className="form-label small fw-medium">Email address</label>
+              <label className="form-label">Email address</label>
               <input
                 type="email"
                 name="email"
@@ -74,8 +64,8 @@ const Login = () => {
 
             <div className="mb-4">
               <div className="d-flex justify-content-between">
-                <label className="form-label small fw-medium">Password</label>
-                <a href="#" className="small text-decoration-none text-primary">Forgot password?</a>
+                <label className="form-label">Password</label>
+                <a href="#" className="small text-decoration-none">Forgot password?</a>
               </div>
               <input
                 type="password"
@@ -88,27 +78,20 @@ const Login = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="btn w-100 fw-semibold text-dark"
-              style={{ backgroundColor: "#387ed1", color: "white" }}
-            >
-              Login
+            <button type="submit" className="pt-btn-gradient w-100 py-2">
+              Sign in
             </button>
-
           </form>
         </div>
 
-        {/* Footer */}
-        <div className="card-footer bg-white border-0 text-center pb-4">
+        <div className="text-center pb-4">
           <p className="small text-muted mb-0">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-primary text-decoration-none fw-medium">
-              Sign up free
+            <Link to="/signup" className="text-decoration-none fw-semibold">
+              Create one free
             </Link>
           </p>
         </div>
-
       </div>
       <ToastContainer />
     </div>

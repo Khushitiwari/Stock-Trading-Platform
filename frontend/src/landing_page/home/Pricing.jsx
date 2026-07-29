@@ -1,53 +1,49 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Pricing() {
   return (
-    <div className="container my-5 ">
-      <div className="row justify-content-center align-items-center ">
-
-        {/* Left Content */}
-        <div className="col-12 col-md-6 col-lg-5 mb-4 mb-md-0">
-          <h1 className="mb-3 fs-2 mt-5">Unbeatable Pricing</h1>
-
-          <p className="mb-3">
-            We pioneered the concept of discount broking and price transparency
-            in India. Flat fees and no hidden charges.
-          </p>
-
-          <a href="" className="text-decoration-none">
-            See Pricing →
-          </a>
-        </div>
-
-        {/* Spacer (only on large screens) */}
-        <div className="d-none d-lg-block col-lg-1"></div>
-
-        {/* Pricing Cards */}
-        <div className="col-12 col-md-6 col-lg-5 mt-5">
-          <div className="row text-center g-3">
-
-            <div className="col-12 col-sm-6">
-              <div className="border p-4 h-100">
-                <h1 className="mb-3">₹0</h1>
-                <p className="mb-0">
-                  Free equity delivery and direct mutual funds
-                </p>
+    <section className="pt-section">
+      <div className="container">
+        <div className="row align-items-center g-5">
+          <div className="col-lg-5">
+            <span className="pt-product-tag">Simple pricing</span>
+            <h2 className="mb-3">Transparent fees, no surprises</h2>
+            <p className="text-muted mb-4">
+              We believe pricing should be simple enough to explain in one sentence.
+              No hidden charges, no volume-based tiers.
+            </p>
+            <Link to="/pricing" className="text-decoration-none fw-semibold">
+              View full pricing →
+            </Link>
+          </div>
+          <div className="col-lg-7">
+            <div className="row g-3">
+              <div className="col-sm-6">
+                <div className="pt-feature-card text-center h-100">
+                  <h3 className="display-5 fw-bold mb-2" style={{ fontFamily: "var(--pt-mono)", color: "var(--pt-primary)" }}>
+                    ₹0
+                  </h3>
+                  <p className="text-muted mb-0 small">
+                    Free equity delivery & direct mutual funds
+                  </p>
+                </div>
+              </div>
+              <div className="col-sm-6">
+                <div className="pt-feature-card text-center h-100">
+                  <h3 className="display-5 fw-bold mb-2" style={{ fontFamily: "var(--pt-mono)", color: "var(--pt-primary)" }}>
+                    ₹20
+                  </h3>
+                  <p className="text-muted mb-0 small">
+                    Per executed order for intraday & F&O
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="col-12 col-sm-6 ">
-              <div className="border p-4 h-100">
-                <h1 className="mb-3">₹20</h1>
-                <p className="mb-0">Intraday and F&O</p>
-              </div>
-            </div>
-
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
   );
 }
 

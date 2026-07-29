@@ -1,62 +1,104 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Summary = () => {
+  const stats = [
+    {
+      label: "Portfolio Value",
+      value: "₹31,430",
+      change: "+5.20%",
+      up: true,
+    },
+    {
+      label: "Today's P&L",
+      value: "+₹1,552",
+      change: "+4.95%",
+      up: true,
+    },
+    {
+      label: "Margin Available",
+      value: "₹3,740",
+      change: "Equity",
+      up: null,
+    },
+    {
+      label: "Open Positions",
+      value: "4",
+      change: "2 profitable",
+      up: true,
+    },
+  ];
+
   return (
     <>
-      <div className="username">
-        <h6>Hi, User!</h6>
-        <hr className="divider" />
+      <div className="summary-header">
+        <h1>Good afternoon, Trader</h1>
+        <p>Here's your portfolio snapshot for today</p>
       </div>
 
-      <div className="section">
-        <span>
-          <p>Equity</p>
-        </span>
-
-        <div className="data">
-          <div className="first">
-            <h3>3.74k</h3>
-            <p>Margin available</p>
+      <div className="stat-grid">
+        {stats.map((stat) => (
+          <div className="stat-card" key={stat.label}>
+            <div className="stat-card-label">{stat.label}</div>
+            <div className="stat-card-value">{stat.value}</div>
+            {stat.up !== null && (
+              <div className={`stat-card-change ${stat.up ? "up" : "down"}`}>
+                {stat.change}
+              </div>
+            )}
+            {stat.up === null && (
+              <div className="stat-card-change" style={{ color: "var(--pt-muted)" }}>
+                {stat.change}
+              </div>
+            )}
           </div>
-          <hr />
-
-          <div className="second">
-            <p>
-              Margins used <span>0</span>{" "}
-            </p>
-            <p>
-              Opening balance <span>3.74k</span>{" "}
-            </p>
-          </div>
-        </div>
-        <hr className="divider" />
+        ))}
       </div>
 
-      <div className="section">
-        <span>
-          <p>Holdings (13)</p>
-        </span>
-
-        <div className="data">
-          <div className="first">
-            <h3 className="profit">
-              1.55k <small>+5.20%</small>{" "}
-            </h3>
-            <p>P&L</p>
+      <div className="panel-grid">
+        <div className="panel">
+          <div className="panel-title">Equity Margin</div>
+          <div className="panel-row">
+            <span>Available margin</span>
+            <span>₹3,740</span>
           </div>
-          <hr />
-
-          <div className="second">
-            <p>
-              Current Value <span>31.43k</span>{" "}
-            </p>
-            <p>
-              Investment <span>29.88k</span>{" "}
-            </p>
+          <div className="panel-row">
+            <span>Used margin</span>
+            <span>₹0</span>
+          </div>
+          <div className="panel-row">
+            <span>Opening balance</span>
+            <span>₹3,740</span>
           </div>
         </div>
-        <hr className="divider" />
+
+        <div className="panel">
+          <div className="panel-title">Holdings Summary</div>
+          <div className="panel-row">
+            <span>Total investment</span>
+            <span>₹29,880</span>
+          </div>
+          <div className="panel-row">
+            <span>Current value</span>
+            <span>₹31,430</span>
+          </div>
+          <div className="panel-row">
+            <span>Overall P&L</span>
+            <span style={{ color: "var(--pt-success)" }}>+₹1,552 (+5.20%)</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="quick-actions">
+        <Link to="/holdings" className="btn-pt btn-pt-primary">
+          View Holdings
+        </Link>
+        <Link to="/orders" className="btn-pt btn-pt-outline">
+          Order History
+        </Link>
+        <Link to="/funds" className="btn-pt btn-pt-success">
+          Add Funds
+        </Link>
       </div>
     </>
   );

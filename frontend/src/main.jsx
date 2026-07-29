@@ -20,7 +20,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CookiesProvider>                        {/* ← add this */}
+    <CookiesProvider>                        
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />

@@ -1,8 +1,5 @@
-
-
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { useCookies } from "react-cookie";  
 
 import Apps from "./Apps";
 import Funds from "./Funds";
@@ -14,23 +11,9 @@ import WatchList from "./WatchList";
 import { GeneralContextProvider } from "./GeneralContext";
 
 const Dashboard = () => {
-  const [, removeCookie] = useCookies([]);
-
-  const handleLogout = () => {
-    removeCookie("token", { path: "/" });
-    window.location.href = "http://localhost:5175/login";
-  };
-
   return (
-    <div className="dashboard-container">
-      <GeneralContextProvider>
-        <WatchList />
-      </GeneralContextProvider>
-
-      {/* Add logout button wherever fits your UI */}
-      <button onClick={handleLogout}>Logout</button>
-
-      <div className="content">
+    <div className="app-workspace">
+      <div className="dashboard-content">
         <Routes>
           <Route exact path="/" element={<Summary />} />
           <Route path="/orders" element={<Orders />} />
@@ -40,6 +23,10 @@ const Dashboard = () => {
           <Route path="/apps" element={<Apps />} />
         </Routes>
       </div>
+
+      <GeneralContextProvider>
+        <WatchList />
+      </GeneralContextProvider>
     </div>
   );
 };

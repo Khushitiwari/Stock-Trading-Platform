@@ -1,64 +1,96 @@
 import React from "react";
 import Hero from "./Hero";
-import LeftSection from "./LeftSection";
-import RightSection from "./RightSection";
-import Universe from "./Universe";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
+
+const products = [
+  {
+    tag: "Trading Terminal",
+    name: "Pulse Terminal",
+    description:
+      "Our flagship trading interface with real-time streaming data, advanced charting with 100+ indicators, and a distraction-free layout built for focus.",
+    image: "/src/assets/kite.png",
+    reverse: false,
+  },
+  {
+    tag: "Portfolio Hub",
+    name: "Pulse Console",
+    description:
+      "Your command center for portfolio analytics. Deep-dive reports, tax P&L statements, and visual breakdowns of your holdings across asset classes.",
+    image: "/src/assets/console.png",
+    reverse: true,
+  },
+  {
+    tag: "Mutual Funds",
+    name: "Pulse Invest",
+    description:
+      "Direct mutual fund investing with zero commission. SIP automation, goal-based planning, and seamless delivery to your demat account.",
+    image: "/src/assets/coin.png",
+    reverse: false,
+  },
+  {
+    tag: "Developer API",
+    name: "Pulse Connect",
+    description:
+      "Build custom trading applications with our REST and WebSocket APIs. Full market data, order management, and portfolio endpoints.",
+    image: "/src/assets/kiteconnect.png",
+    reverse: true,
+  },
+  {
+    tag: "Learning",
+    name: "Pulse Academy",
+    description:
+      "Interactive lessons on technical analysis, options strategies, and market fundamentals — designed for learning on the go.",
+    image: "/src/assets/varsity.png",
+    reverse: false,
+  },
+];
 
 function ProductPage() {
   return (
     <>
+      <Navbar />
       <Hero />
-      <LeftSection
-        imgURL="/src/assets/kite.png"
-        productName="Kite"
-        productDescription="Our ultra-fast flagship trading platform with streaming market data, advanced charts, an elegant UI, and more. Enjoy the Kite experience seamlessly on your Android and iOS devices."
-        tryDemo=""
-        learnMore=""
-        googlePLay=""
-        appStore=""
-      />
-       <RightSection
-       imgUrl='/src/assets/console.png'
-       productName="Console"
-       productDescription="The central dashboard for your Zerodha account. Gain insights into your trades and investments with in-depth reports and visualisations."
-       learnMore=''
-       />
-      <LeftSection
-        imgURL="/src/assets/coin.png"
-        productName="Coin"
-        productDescription="Buy direct mutual funds online, commission-free, delivered directly to your Demat account. Enjoy the investment experience on your Android and iOS devices.
 
-"
-        tryDemo=""
-        learnMore=""
-        googlePLay=""
-        appStore=""
-      />
+      {products.map((product) => (
+        <section
+          key={product.name}
+          className="pt-product-section"
+        >
+          <div className="container">
+            <div className={`row align-items-center g-5 ${product.reverse ? "flex-lg-row-reverse" : ""}`}>
+              <div className="col-lg-5 text-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="img-fluid rounded-4"
+                  style={{ maxHeight: "320px", objectFit: "contain" }}
+                />
+              </div>
+              <div className="col-lg-7">
+                <span className="pt-product-tag">{product.tag}</span>
+                <h2 className="mb-3">{product.name}</h2>
+                <p className="text-muted mb-4">{product.description}</p>
+                <a href="#" className="pt-btn-outline text-decoration-none d-inline-block">
+                  Learn more →
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
 
-      <RightSection 
-      imgUrl='/src/assets/kiteconnect.png'
-      productName='Kite Connect API'
-      productDescription='Build powerful trading platforms and experiences with our super simple HTTP/JSON APIs. If you are a startup, build your investment app and showcase it to our clientbase.'
-      learnMore=''
-      />
+      <section className="pt-section text-center">
+        <div className="container">
+          <h3 className="mb-2">Want to see our tech stack?</h3>
+          <p className="text-muted mb-3">We believe in building in the open.</p>
+          <a href="#" className="pt-btn-gradient text-decoration-none d-inline-block">
+            Visit PulseTrade Engineering
+          </a>
+        </div>
+      </section>
 
-      <LeftSection
-        imgURL="/src/assets/varsity.png"
-        productName="Varsity mobile"
-        productDescription="An easy to grasp, collection of stock market lessons with in-depth coverage and illustrations. Content is broken down into bite-size cards to help you learn on the go."
-        googlePLay=""
-        appStore=""
-      />
-
-      <p className="text-center fw-bold fs-5 fade-up">
-  Want to know more about our technology stack?
-  <a href="#" className="text-decoration-none ms-2 fs-5">
-    Zerodha.tech
-  </a>
-</p>
-
-
-      <Universe />
+      <Footer />
     </>
   );
 }

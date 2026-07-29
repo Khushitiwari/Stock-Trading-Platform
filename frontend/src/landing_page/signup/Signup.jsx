@@ -1,11 +1,9 @@
-
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
 const Signup = () => {
-  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({ email: "", password: "", username: "" });
   const { email, password, username } = inputValue;
 
@@ -41,26 +39,18 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-      <div className="card shadow-sm border-0 w-100" style={{ maxWidth: "420px" }}>
-
-        {/* Header */}
-        <div className="card-header bg-white border-0 text-center pt-4 pb-0">
-          <img
-            src="/src/assets/logo.svg"
-            alt="Logo"
-            style={{ height: "28px", marginBottom: "16px" }}
-          />
-          <h5 className="fw-semibold mb-0">Create your account</h5>
-          <p className="text-muted small mt-1">Start trading in minutes</p>
+    <div className="pt-auth-page">
+      <div className="pt-auth-card">
+        <div className="pt-auth-header">
+          <img src="/src/assets/logo.svg" alt="PulseTrade" style={{ height: "32px", marginBottom: "1rem" }} />
+          <h5 className="fw-bold mb-1">Create your account</h5>
+          <p className="text-muted small">Start trading in under 5 minutes</p>
         </div>
 
-        {/* Body */}
-        <div className="card-body px-4 py-4">
+        <div className="pt-auth-body">
           <form onSubmit={handleSubmit}>
-
             <div className="mb-3">
-              <label className="form-label small fw-medium">Username</label>
+              <label className="form-label">Username</label>
               <input
                 type="text"
                 name="username"
@@ -73,7 +63,7 @@ const Signup = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label small fw-medium">Email address</label>
+              <label className="form-label">Email address</label>
               <input
                 type="email"
                 name="email"
@@ -86,7 +76,7 @@ const Signup = () => {
             </div>
 
             <div className="mb-4">
-              <label className="form-label small fw-medium">Password</label>
+              <label className="form-label">Password</label>
               <input
                 type="password"
                 name="password"
@@ -98,27 +88,20 @@ const Signup = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="btn w-100 fw-semibold"
-              style={{ backgroundColor: "#387ed1", color: "white" }}
-            >
-              Create Account
+            <button type="submit" className="pt-btn-gradient w-100 py-2">
+              Create account
             </button>
-
           </form>
         </div>
 
-        {/* Footer */}
-        <div className="card-footer bg-white border-0 text-center pb-4">
+        <div className="text-center pb-4">
           <p className="small text-muted mb-0">
             Already have an account?{" "}
-            <Link to="/login" className="text-primary text-decoration-none fw-medium">
-              Login
+            <Link to="/login" className="text-decoration-none fw-semibold">
+              Sign in
             </Link>
           </p>
         </div>
-
       </div>
       <ToastContainer />
     </div>
